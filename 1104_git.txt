@@ -1,0 +1,119 @@
+user.name=DESKTOP-QOF5SIA\human-09
+user.email=hongwk0315@gmail.com
+
+
+gitd의 목적 : 파일 및 폴더 관리
+
+git config --global user.name "사용 할 이름" + enter
+git config --global user.email "사용 할 메일" + enter
+
+
+open(lock) : 나만 쓸 수 있도록
+  - 처음에 연 사람만 수정 가능하도록
+  - 이후의 사람들은 불가능
+  - 누군가가 열면 lock 된다는 뜻
+
+git init 은 처음에만(도중에 치면 다 날라감)
+On brach maser // master라는 이름을 가진 branch 위치에 있음.
+no commit yet //  commit 할 게 없다.
+
+git 안의 공간------------------------------
+| untracked area
+| statged area : commit 할 수 있는 곳
+|--------------------------------------------
+
+
+기본용어
+  - branch : git의 작업영역
+  - master : git의 기본 브랜치 이름. cf. 바꾸기 가능
+  - HEAD : 현재 작업 브랜치의 위치
+  - remote/orign : 깃의 원격 기본 브랜치의 alias (ex. 깃허브, bitbucket ..)
+
+git add 파일명 //commit 할 수 있도록 staged area에 넣도록 작업
+git rm --cached 파일명 // to unstage
+git commit : staged area 안에 있는 파일들을 commit 공간(혹은 스냅샷)으로 저장하는 명령어
+  - commit 할 땐 무조건 메시지를 남긴다.
+  - 방법 : git commit -m '메시지'
+  - commit 실항하면 commit 이라는 공간으로 들어감. status 명령으로 볼 수 없는 상태
+git log : commit 한 메시지 및 언제, 누가 했는지를 볼 수 있는 명령어
+  - head에 있다가 master 로 commit
+  - git log -2 : 최신 2개만 보겠다.
+  - git log -p : 자세한 내용까지 확인
+  - git log -p "파일이름" : 파일 하나에 대한 자세한 내용 확인 
+
+
+명령어를 한번에 칠 수 있는 방법
+  -  git add git_practice2.txt && git commit -m '두번째파일 다시 추가!'
+
+파일 안의 내용을 수정하면 git status 명령어로 modified 됨을 확인.
+수정된 내용도 add + commit 을 해줘야 한다.
+git commit -a -m '두번째 파일 수정 후 추가!'
+
+git diff : 변경한 것과의 전 후가 어떻게 바뀌었는지 알려주는 명령어
+  - 파일을 수정 후 git diff 명령 실행하면 달라진 것을 볼 수 있다.
+  - commit 전 체크용
+  - 초록은 추가 / 빨강은 삭제
+
+git commit --amend -m "메시지 변경내용: // 마지막 commit 한 메시지를 바꿈
+  - 두번째 파일 또다시수정! -> 가장 마지막에 commit 한 것에 대한 메시지를 변경함
+  - 같은 명령어로 계속 바꿔줄 수 있다.
+
+
+git reset // commit 을 삭제(버전 관리 되돌리기 명령어)
+git reset HEAD^ : 마지막 커밋을 스테이징 전 상태로 되돌리는 명령어
+  -> 최근 1개의 커멧을 삭제하고, 변경된 파일은 unstaging 상태로 유지
+
+git reset --hard HEAD^ //최근 1개의 commit을 삭제하고, 변경된 파일도 함께 되돌림
+
+git repository: git으로 관리하는 공간
+  - local
+  - remote
+
+github(원격저장소) 관련 명령
+
+$ git remote // 원격 저장소 관련 명령어 
+$ git push // local에서 작업한 내용을 git 원격저장소에 저장하는 기능
+$ git push -u origin master // 후 깃허브에 업로드 되어있는 것을 확인
+
+$ git clone // remote로 작업한 모든 내용을 맨 처음 내 local에 그대로 복제하겠다.
+$ git pull // remote에서 작업한 내용을 local git 저장소에 저장 (git clone이 된 상태에서)
+
+
+
+----깃허브에 업로드하기-----
+1. 파일생성
+2. git add 
+3. git commit
+4. git push
+-------------------------------
+
+
+-------파일 삭제 후 깃허브에도 삭제하기------
+1. 파일 직접 로컬에서 삭제 후
+2. add
+3. commit
+4. git push (git push -u origin master을 한번 실행하면 
+               이후 git push 만으로도 가능 )
+-------------------------------------------------
+
+
+----push의 반대는 pull----
+$git pull
+---------------------------
+
+파일이 없는 폴더는 git 에서 인식 x
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
