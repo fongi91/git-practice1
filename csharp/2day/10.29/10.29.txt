@@ -1,0 +1,209 @@
+byte (unsigned byte) 부호가 없는 8비트 정수 (0~255) --> 나이 등
+
+왼 - 변수명 
+오 - 값
+문장 끝 - ;
+   int n; long sum;   // 이렇게도 가능
+달러표시는 float으로 
+
+
+타입
+  - 정수형(8가지-int), 실수형(3가지-double), 문자열(2가지-string), boolean형
+
+
+정수 - 실수 는 형변환 O
+문자 - 문자열은 형변환 X
+
+식별자 규칙
+  - 식별자는 반드시 문자로 시작 (int n1 = 5; (O) / int 1n = 5 (X) )
+  - 특수문자중에서는 밑줄문자만 시작문자로 사용 가능 (int _n = 5)
+  - 유니코드 위의 문자 허용하므로, 한글 식별자도 가능 (int 변수 = 5;)
+  - 예약어 식별자 사용 불가(사용하려면 앞에 @ 을 붙여야 함)
+  - 이스케이프 시퀀스로도 식별자 사용은 가능하지만 쓸일 없음(string \u0062ool)
+  - 대소문자를 구별함(int Main = 1; / int main = 2;)
+
+리터럴
+  - 문자상, 문자 그대로
+
+메모리
+  - 스택 (값을 참조)
+  - 힙 
+
+
+null
+  - 힙 과 연관
+     - 특정 값을 넣음(null - 아무것도 없음. 0도, 1도 아님)
+//null 키워드 사용하기
+string? text = null;
+string? text1 = null;   // ?의 의미 : null 사용을 허용하겠다.(null은 값이 었는 것)
+string text2 = " "; // empty. null과 다름. 1bit라는 값을 차지함.
+
+
+       // 데이터 타입의 기본값
+       string result; // 기본값 : false. 권장하지 않는 형식(값까지 설정해야..)
+       int a; // 기본값 : 0 권장하지 않는 형식(값까지 설정해야..)
+
+
+        // 상수(변하지 않는 수 - const키워드) : const 가 붙은 변수명은 값 수정 시 에러 발생. ex) 원의 넓이를 구할 때 PI = 3.141592...
+        const bool result2 = false;
+        // result2 = true;
+
+        const double PI = 3.14; 
+        // 오류발생 PI = 3.25;
+
+        const string Jumin = "910315-1234567";
+        // 오류 발생 Jumin = "913332-1234567";
+
+        const int n1 = 10 + 10;
+        // 이런 방식은 가능.
+
+
+
+
+        // 연산자(+, -, *, /, %)
+        // % : 나누었을 때의 나머지
+        int z1 = 3 % 2;
+        Console.WriteLine("3 % 2의 나머지는 " + z1);
+
+        int z2 = 4 % 2;
+        Console.WriteLine("4 % 2의 나머지는 " + z2);
+
+        int x1 = 3 / 2;
+        Console.WriteLine("3/2 의 값은 " + x1); // 1
+        double x2 = 3.0 / 2; //      정수/정수 = 정수,     실수/정수 = 실수
+        Console.WriteLine("3/2 의 값은 " + x2); // 1.5
+
+        double x3 = 3 / (double)2;
+        Console.WriteLine("3/2 의 값은 " + x3); // 1.5
+
+
+-----------------------------------------------------------------------------
+
+        // 배열 array 0부터 시작 [] 안에 있는 숫자 : index(색인)
+        int[] productPrices = new int[4];
+        string[] productNames = new string[4];
+
+
+        // 배열 선언 및 초기화
+        int[] products = new int[5] { 1, 2, 3, 4, 5 };
+        int[] products2 = { 1, 2, 3, 4, 5 };
+
+
+
+        //문자열에 대한 배열(주의)
+        string text = "Hello World"; // 0 1 2 3 4 5 6 7 8 9 10 총 11개의 배열을 가진다는 말
+        char ch1 = text[0]; // H
+        char ch2 = text[1]; // e
+        char ch11 = text[10]; // d
+        Console.WriteLine(ch1);
+        Console.WriteLine(ch2);
+        Console.WriteLine(ch11);
+        Console.WriteLine();
+        // char ch12 = text[11]; // 런타임에러 발생. text 11개까지만(0~10) 저장 되어있음. 
+
+
+
+        // 배열의 기본값(int 의 경우 0, float의 경우 0, double의 경우 0, string은 null)
+        int[] students = new int[60];
+        Console.WriteLine(students[0]); // 출력결과 0 
+
+        float[] sosu = new float[60];
+        Console.WriteLine(sosu[0]); // 출력결과 0
+
+        double[] sosu1 = new double[60];
+        Console.WriteLine(sosu1[0]); // 출력결과 0
+
+        // 제어문(Control Statement)
+        // 0. 관계 및 논리연산자
+        //   - 관계연산자: >, >=, <=, <, ==, !=
+        //   - 논리연산자: &&, ||, !
+
+        bool result1 = (10 > 20);
+        Console.WriteLine(result1); // False
+
+        bool result2 = (10 < 20);
+        Console.WriteLine(result2 +"\n"); // True
+
+        int value1 = 6;
+        int n1 = value1 % 3; // n1은 0
+        bool result3 = (n1 != 0);
+        Console.WriteLine(result3);
+        Console.WriteLine();
+        Console.WriteLine();
+
+
+        // 제어문(Control Statement)
+        // 0. 관계 및 논리연산자
+        //   - 관계연산자: >, >=, <=, <, ==, !=
+        //   - 논리연산자: &&, ||, !
+
+        bool result1 = (10 > 20);
+        Console.WriteLine(result1); // False
+
+        bool result2 = (10 < 20);
+        Console.WriteLine(result2 +"\n"); // True
+
+        int value1 = 6;
+        int n1 = value1 % 3; // n1은 0
+        bool result3 = (n1 != 0);
+        Console.WriteLine(result3);
+        Console.WriteLine();
+        Console.WriteLine();
+
+
+
+
+        //   - 논리연산자: &&(and), ||(or), !(not) 
+        // ex) A AND(&&) B : AND연산자는 A와 B의 논리값이 하나라도 False 이면 결과는 False
+        // ex) A OR(||) B : OR연산자는 A와 B의 논리값이 하나라도 True 이면 결과는 True
+        int value2 = 10;
+        int n3 = value2 % 3; // 1
+        int n4 = value2 % 5; // 0
+
+        bool orResult1 = (n3 == 0 || n4 == 0); // false || true -> true
+        Console.WriteLine("value는 3의배수이거나 5의배수이면 " + orResult1 + "이다."); // True
+
+        bool andResult1 = (n3 == 0 && n4 == 0); // false && true -> false
+        Console.WriteLine("value는 3의배수이면서 5의배수이면 " + andResult1 + "이다."); // False
+
+        bool notResult1 = !(n3 == 0);
+        Console.WriteLine("value는 3의배수가 아님: " + notResult1);
+
+
+        int n11 = 6;
+        int n12 = 10;
+        bool result11 = (n11 % 3 == 0 || n12 % 3 ==0); //6은 3의배수이거나 10은 3의배수이면 true
+        Console.WriteLine("n11 또는 n12는 3의 배수? ->  " + result11);
+
+        bool result12 = (n11 % 3 == 0 && n12 % 3 == 0); //6은 3의배수이고 10은 3의배수이면 true
+        Console.WriteLine("n11이 3의 배수이고 n12는 3의 배수? ->  " + result12);
+
+
+
+        Console.WriteLine("\n\n\n\n\n\n\n\n");
+     
+
+        //문제1. 조건을 만족하는 논리연산을 사용하여 맞으면 true / 틀리면 false
+        //조건 : 변수 age>=70 이고, hasLicense가 true 일 경우 true / 틀리면 false
+        int age = 40;
+        bool hasLicense = true;
+        bool result13 = (age >= 70 && hasLicense);
+        Console.WriteLine("문제1의 결과 : " + result13);
+
+
+        //문제2. isweekend와 isHoliday 중 하나라도 true 일 경우 true 를 출력. 아니면 false
+        bool isWeekend = false;
+        bool isHoliday = true;
+        bool result14 = (isWeekend || isHoliday);
+        Console.WriteLine("문제2의 결과 : " + result14);
+
+
+        //문제3. 아래 변수를 사용하여 조건을 만족할 때 true 아니면 false 출력
+        // temperature 20 이상 30 이하
+        // isRainy
+        int temperature = 25;
+        bool isRainy = false;
+
+        bool result15 = (20 <= temperature && temperature <= 30);
+        bool result16 = (result15 && isRainy); 
+        Console.WriteLine("문제3의 결과 : " + result16);
